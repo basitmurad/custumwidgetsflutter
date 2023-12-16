@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:custumwidgets/CustButton.dart';
+import 'package:custumwidgets/SecondLayout.dart';
+import 'Widgets/rounded_btn.dart';
 
 
 
@@ -93,25 +94,31 @@ class Dashboard extends State<MyHomePage> {
               Container(
                 height: 8,
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    String email = textEmail.text.toString();
-                    String password = textPassword.text.toString();
-
-                    print("Email $textEmail  and Password $textPassword");
-                    Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => CustomButton()),
-                    );
-
-                  // if(textEmail.text.toString().isEmpty  && textPassword.text.toString().isEmpty)
-                  //   {
-                  //
-                  //     print("Your field are empty");
-                  //   }
-                  // else{
-                  // }
-                  },
-                  child: Text('Login'))
+              RoundedBnt(btnName: 'Clicked ', voidCallback: ()
+              {
+                Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => SecondLayout()),
+                          );
+              })
+              // ElevatedButton(
+              //     onPressed: () {
+              //       String email = textEmail.text.toString();
+              //       String password = textPassword.text.toString();
+              //
+              //       print("Email $textEmail  and Password $textPassword");
+              //       Navigator.push(context,
+              //         MaterialPageRoute(builder: (context) => SecondLayout()),
+              //       );
+              //
+              //     // if(textEmail.text.toString().isEmpty  && textPassword.text.toString().isEmpty)
+              //     //   {
+              //     //
+              //     //     print("Your field are empty");
+              //     //   }
+              //     // else{
+              //     // }
+              //     },
+              //     child:RoundedBnt(btnName: 'Login', voidCallback: () {  } ,) )
             ],
           ),
         ),
