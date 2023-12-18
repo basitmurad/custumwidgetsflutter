@@ -1,12 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:custumwidgets/SecondLayout.dart';
+
+import 'SecondLayout.dart';
 import 'Widgets/rounded_btn.dart';
 
-
-
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         theme: ThemeData(primarySwatch: Colors.lightBlue),
+//         home: Scaffold(
+//           appBar: AppBar(
+//             title: const Text(
+//               "Dashboard",
+//               style: TextStyle(
+//                   fontWeight: FontWeight.bold,
+//                   fontSize: 18.90,
+//                   color: Colors.white),
+//             ),
+//             centerTitle: true,
+//             actions: <Widget>[
+//               IconButton(
+//                   onPressed: () {
+//                     print('Home button is pressed');
+//                   },
+//                   icon: const Icon(Icons.notification_add))
+//             ],
+//             backgroundColor: Colors.red,
+//             leading: IconButton(
+//                 onPressed: () {},
+//                 icon: IconButton(
+//                   onPressed: () {
+//                     print('Notification button is pressed');
+//                   },
+//                   icon: const Icon(Icons.home),
+//                 )),
+//             shape: const RoundedRectangleBorder(
+//                 borderRadius: BorderRadius.only(
+//                     bottomRight: Radius.circular(15),
+//                     bottomLeft: Radius.circular(15))),
+//             toolbarHeight: 100,
+//           ),
+//           body: const Column(
+//             children: [
+//
+//
+//                 Padding(
+//                   padding: EdgeInsets.all(18.0),
+//
+//                   child: Text(
+//                     "Enter you password and email",
+//                     style: TextStyle(
+//
+//                       fontSize: 18,
+//                     ),
+//                   ),
+//
+//                 ),
+//               SizedBox(height: 16.0,)
+//
+//
+//             ],
+//
+//
+//
+//           ),
+//         ));
+//   }
+// }
+
+// class MyApp extends StatelessWidget{
+//   @override
+//   Widget build(BuildContext context) {
+//
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(primaryColor: Colors.red),
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text('Appbar' ,style: TextStyle(color: Colors.white ,fontWeight: FontWeight.bold ,letterSpacing: 2.0),
+//           ),
+//           centerTitle: true,
+//           backgroundColor: Colors.blue,
+//         ),
+//
+//
+//
+//         backgroundColor: Colors.red,
+//       ),
+//
+//     )
+//     ;
+//
+//
+//     // TODO: implement build
+//     throw UnimplementedError();
+//   }
+//
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,7 +112,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -40,16 +135,44 @@ class Dashboard extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    return MaterialApp(
+      home: Scaffold(
+
+
       appBar: AppBar(
-        title: Text(
-          "Custom Text Field",
+        title: const Text("Custom Text Field",
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18.90,
               color: Colors.white),
+
         ),
+
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(onPressed: (){
+
+            print('Home button is pressed');
+
+          }, icon: const Icon(Icons.notification_add))
+        ],
         backgroundColor: Colors.red,
+        leading: IconButton(onPressed: (){},
+    icon: IconButton(onPressed: (){
+
+      print('Notification button is pressed');
+    }, icon: const Icon(Icons.home),
+
+    )
+    ),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(25),
+            bottomLeft: Radius.circular(25)
+          )
+        ),
+        toolbarHeight: 100,
       ),
       body: Center(
         child: Container(
@@ -58,8 +181,15 @@ class Dashboard extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
 
-              Text("Enter you password and email" ,style: TextStyle(fontSize: 25.9, fontWeight: FontWeight.bold ),),
-              Container(height:  10,),
+              const Text("Enter you password and email" ,style: TextStyle(fontSize: 18 ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8.0,bottom: 18,left: 22 ,right: 22), // Adjust the margin as needed
+                height: 2.0,
+                width: 600,
+                color: Colors.black, // Change the color as needed
+              ),
+
               TextField(
                   controller: textEmail,
                   decoration: InputDecoration(
@@ -83,152 +213,44 @@ class Dashboard extends State<MyHomePage> {
               ),
               TextField(
                   controller: textPassword,
-                  obscureText: true,
                   decoration: InputDecoration(
-                    hintText: 'Enter Password',
-                    border: OutlineInputBorder(
+                      hintText: 'Enter Password',
+                      focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.3),
-                        borderSide: BorderSide(color: Colors.red, width: 2)),
-                    prefixIcon: Icon(Icons.password),
-                  )),
+                        borderSide: BorderSide(color: Colors.red),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.3),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      // disabledBorder: OutlineInputBorder(
+                      //     borderRadius: BorderRadius.circular(10.3),
+                      //     borderSide: BorderSide(color: Colors.black)),
+
+                      // suffixText: "Username Exist",
+                      prefixIcon: Icon(Icons.password))),
               Container(
-                height: 8,
-              ),
-              RoundedBnt(btnName: 'Clicked ', voidCallback: ()
-              {
-                Navigator.push(context,
+
+                width: 200,
+                margin: EdgeInsets.only(top: 20, right: 20 ,left: 20 ),
+
+
+                child: RoundedBnt(btnName: 'Click', voidCallback: () {
+                  Navigator.push(context,
                             MaterialPageRoute(builder: (context) => SecondLayout()),
                           );
-              })
-              // ElevatedButton(
-              //     onPressed: () {
-              //       String email = textEmail.text.toString();
-              //       String password = textPassword.text.toString();
-              //
-              //       print("Email $textEmail  and Password $textPassword");
-              //       Navigator.push(context,
-              //         MaterialPageRoute(builder: (context) => SecondLayout()),
-              //       );
-              //
-              //     // if(textEmail.text.toString().isEmpty  && textPassword.text.toString().isEmpty)
-              //     //   {
-              //     //
-              //     //     print("Your field are empty");
-              //     //   }
-              //     // else{
-              //     // }
-              //     },
-              //     child:RoundedBnt(btnName: 'Login', voidCallback: () {  } ,) )
+                }
+                  ,icon: Icon(Icons.lock),
+
+                ),
+              ),
+
             ],
           ),
         ),
       ),
+    )
     );
-
-    // return Scaffold(
-    //   appBar: AppBar(
-    //     backgroundColor: Colors.lightBlue,
-    //     title: Text("Custom Widgets ", textAlign: TextAlign.center),
-    //   ),
-    //   body: const Column(
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: [
-    //       Padding(
-    //         padding: EdgeInsets.all(6.0),
-    //         child: Center(
-    //           child: Column(
-    //             children: [
-    //               Text(
-    //                 "Hello",
-    //                 style: TextStyle(fontSize: 24.0),
-    //               ),
-    //
-    //               Divider(
-    //                 color: Colors.black,
-    //                 thickness: 2.0,
-    //
-    //               ),                ],
-    //           ),
-    //         ),
-    //       ),
-    //       Center(
-    //         child: Text(
-    //           "Basit Murad",
-    //           style: TextStyle(
-    //             fontSize: 18.0,
-    //           ),
-    //         ),
-    //       ),
-    //       Text("I Am creating the Custom Widgets")
-    //     ],
-    //   ),
-    //   backgroundColor: Colors.white60,
-    // );
-
-    // TODO: implement build
-    throw UnimplementedError();
   }
-
 }
 
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _counter = 0;
-//
-//   void _incrementCounter() {
-//     setState(() {
-//
-//       _counter++;
-//     });
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//
-//     return Scaffold(
-//       appBar: AppBar(
-//         // TRY THIS: Try changing the color here to a specific color (to
-//         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-//         // change color while the other colors stay the same.
-//         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-//         // Here we take the value from the MyHomePage object that was created by
-//         // the App.build method, and use it to set our appbar title.
-//         title: Text(widget.title),
-//       ),
-//       body: Center(
-//         // Center is a layout widget. It takes a single child and positions it
-//         // in the middle of the parent.
-//         child: Column(
-//           // Column is also a layout widget. It takes a list of children and
-//           // arranges them vertically. By default, it sizes itself to fit its
-//           // children horizontally, and tries to be as tall as its parent.
-//           //
-//           // Column has various properties to control how it sizes itself and
-//           // how it positions its children. Here we use mainAxisAlignment to
-//           // center the children vertically; the main axis here is the vertical
-//           // axis because Columns are vertical (the cross axis would be
-//           // horizontal).
-//           //
-//           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-//           // action in the IDE, or press "p" in the console), to see the
-//           // wireframe for each widget.
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             const Text(
-//               'You have pushed the button this many times:',
-//             ),
-//             Text(
-//               '$_counter',
-//               style: Theme.of(context).textTheme.headlineMedium,
-//             ),
-//           ],
-//         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _incrementCounter,
-//         tooltip: 'Increment',
-//         child: const Icon(Icons.add),
-//       ), // This trailing comma makes auto-formatting nicer for build methods.
-//     );
-//   }
-// }
