@@ -74,7 +74,7 @@ class MyClass  extends StatelessWidget
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(title: Text('Container'),
+      // appBar: AppBar(title: Text('Container'),
 
 
 

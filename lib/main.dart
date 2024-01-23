@@ -1,6 +1,10 @@
+import 'package:custumwidgets/Widgets/ButtonLayout.dart';
+import 'package:custumwidgets/Widgets/cardWidget.dart';
+import 'package:custumwidgets/Widgets/circileAvator.dart';
 import 'package:flutter/material.dart';
 
 import 'SecondLayout.dart';
+import 'Widgets/CustumAppBar.dart';
 import 'Widgets/rounded_btn.dart';
 
 void main() {
@@ -140,40 +144,44 @@ class Dashboard extends State<MyHomePage> {
       home: Scaffold(
 
 
-      appBar: AppBar(
-        title: const Text("Custom Text Field",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.90,
-              color: Colors.white),
+      )
 
-        ),
-
-        centerTitle: true,
-        actions: <Widget>[
-          IconButton(onPressed: (){
-
-            print('Home button is pressed');
-
-          }, icon: const Icon(Icons.notification_add))
-        ],
-        backgroundColor: Colors.red,
-        leading: IconButton(onPressed: (){},
-    icon: IconButton(onPressed: (){
-
-      print('Notification button is pressed');
-    }, icon: const Icon(Icons.home),
-
-    )
-    ),
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(25),
-            bottomLeft: Radius.circular(25)
-          )
-        ),
-        toolbarHeight: 100,
-      ),
+    //   AppBar(
+    //
+    //
+    //     title: const Text("Custom Text Field",
+    //       style: TextStyle(
+    //           fontWeight: FontWeight.bold,
+    //           fontSize: 18.90,
+    //           color: Colors.white),
+    //
+    //     ),
+    //
+    //     centerTitle: true,
+    //     actions: <Widget>[
+    //       IconButton(onPressed: (){
+    //
+    //         print('Home button is pressed');
+    //
+    //       }, icon: const Icon(Icons.notification_add))
+    //     ],
+    //     backgroundColor: Colors.red,
+    //     leading: IconButton(onPressed: (){},
+    // icon: IconButton(onPressed: (){
+    //
+    //   print('Notification button is pressed');
+    // }, icon: const Icon(Icons.home),
+    //
+    // )
+    // ),
+    //     shape: const RoundedRectangleBorder(
+    //       borderRadius: BorderRadius.only(
+    //         bottomRight: Radius.circular(25),
+    //         bottomLeft: Radius.circular(25)
+    //       )
+    //     ),
+    //     toolbarHeight: 100,
+    //   ),
       body: Center(
         child: Container(
           width: 300,
@@ -202,6 +210,9 @@ class Dashboard extends State<MyHomePage> {
                         borderRadius: BorderRadius.circular(10.3),
                         borderSide: BorderSide(color: Colors.black),
                       ),
+
+
+
                       // disabledBorder: OutlineInputBorder(
                       //     borderRadius: BorderRadius.circular(10.3),
                       //     borderSide: BorderSide(color: Colors.black)),
@@ -209,12 +220,15 @@ class Dashboard extends State<MyHomePage> {
                       // suffixText: "Username Exist",
                       prefixIcon: Icon(Icons.email))),
               Container(
+
+
                 height: 8,
               ),
               TextField(
                   controller: textPassword,
                   decoration: InputDecoration(
                       hintText: 'Enter Password',
+
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.3),
                         borderSide: BorderSide(color: Colors.red),
@@ -237,7 +251,7 @@ class Dashboard extends State<MyHomePage> {
 
                 child: RoundedBnt(btnName: 'Click', voidCallback: () {
                   Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => SecondLayout()),
+                            MaterialPageRoute(builder: (context) => CardWidget()),
                           );
                 }
                   ,icon: Icon(Icons.lock),
